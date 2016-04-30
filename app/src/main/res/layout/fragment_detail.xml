@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:textAlignment="center"
+        android:id="@+id/movieTitle"
+        android:background="@color/bright_foreground_material_dark"
+        android:textColor="@color/material_blue_grey_950" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:fillViewport="false">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/movieImage"
+                android:src="@drawable/index"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to favorites"
+                android:id="@+id/favor"
+                android:layout_below="@+id/movieImage"
+                android:layout_centerHorizontal="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/movieRelease"
+                android:text="Release Date"
+                android:layout_below="@+id/favor"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/movieVote"
+                android:text="Vote Average"
+                android:layout_below="@+id/movieRelease"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/movieOverview"
+                android:layout_below="@+id/movieVote"
+                android:text="Movie Overview"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/reviews_textview"
+                android:layout_below="@+id/movieOverview"
+                android:text="Reviews"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/trailers_textview"
+                android:text="Trailers"
+                android:layout_below="@+id/reviews"/>
+            <ListView
+                android:id="@+id/reviews"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:drawSelectorOnTop="false"
+                android:listSelector="@android:color/darker_gray"
+                android:layout_below="@+id/reviews_textview">
+            </ListView>
+
+
+            <ListView
+                android:id="@+id/trailers"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:drawSelectorOnTop="false"
+                android:listSelector="@android:color/darker_gray"
+                android:layout_below="@+id/trailers_textview">
+            </ListView>
+
+        </RelativeLayout>
+
+    </ScrollView>
+</LinearLayout>

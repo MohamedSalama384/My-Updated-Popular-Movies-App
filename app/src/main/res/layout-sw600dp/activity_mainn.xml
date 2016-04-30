@@ -1,0 +1,22 @@
+<LinearLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    >
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        />
+    <FrameLayout
+        android:id="@+id/detailFrameLayoute"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:background="#ffffff"/>
+
+
+
+</LinearLayout>
