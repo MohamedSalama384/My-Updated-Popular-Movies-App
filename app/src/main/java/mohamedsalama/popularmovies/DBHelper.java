@@ -33,27 +33,16 @@ public class DBHelper extends SQLiteOpenHelper
 
 /////////////////////////
     public static DBHelper getInstance(Context ctx) {
-        /**
-         * use the application context as suggested by CommonsWare.
-         * this will ensure that you dont accidentally leak an Activitys
-         * context (see this article for more information:
-         * http://developer.android.com/resources/articles/avoiding-memory-leaks.html)
-         */
         if (mInstance == null) {
             mInstance = new DBHelper(ctx.getApplicationContext());
         }
         return mInstance;
     }
 
-    /**
-     * constructor should be private to prevent direct instantiation.
-     * make call to static factory method "getInstance()" instead.
-     */
     private DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
         this.mCxt = context;
     }
-    //////////////////////////////////////
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(
@@ -87,12 +76,6 @@ public class DBHelper extends SQLiteOpenHelper
         Cursor res =  db.rawQuery( "select * from movies where id="+id+"", null );
         return res;
     }
-//    public Cursor getAll()
-//    {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor res =  db.rawQuery( "select * from movies", null );
-//        return res;
-//    }
     public ArrayList<MovieItem> getAll()
     {
         ArrayList<MovieItem>list=new ArrayList<MovieItem>();
@@ -114,12 +97,6 @@ public class DBHelper extends SQLiteOpenHelper
         }
 
         return list;
-    }
-
-    public int numberOfRows(){
-        SQLiteDatabase db = this.getReadableDatabase();
-        int numRows = (int) DatabaseUtils.queryNumEntries(db, MOVIES_TABLE_NAME);
-        return numRows;
     }
 
 

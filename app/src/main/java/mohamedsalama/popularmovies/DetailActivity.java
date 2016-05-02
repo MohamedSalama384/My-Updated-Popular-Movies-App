@@ -12,13 +12,6 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-      /*  Bundle extras=getIntent().getExtras();
-        if(savedInstanceState==null)
-        {
-            DetailActivityFragment detailActivityFragment=new DetailActivityFragment();
-            detailActivityFragment.setArguments(extras);
-            getSupportFragmentManager().beginTransaction().add(,detailActivityFragment).commit();
-        }*/
     }
 
 

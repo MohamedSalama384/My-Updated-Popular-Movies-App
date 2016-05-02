@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -96,11 +97,7 @@ public class MainActivityFragment extends Fragment {
     {
         movieListener=m;
     }
-  /*  @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        super.onSaveInstanceState(outState, outPersistentState);
-        outState.put
-    }*/
+
     private void updateMovies(String type)
     {
         GetMovies fetchMovies=new GetMovies();
@@ -252,13 +249,6 @@ public class MainActivityFragment extends Fragment {
         protected void onPostExecute(ArrayList<MovieItem> array) {
 
             list=array;
-//          if (array != null) {
-//                list.clear();
-//                for(MovieItem movieItem : array)
-//                {
-//               list.add(movieItem);
-//                }
-//       }
            gridViewAdapter.setData(paths);
             gridView.setAdapter(gridViewAdapter);
 

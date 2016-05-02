@@ -56,9 +56,7 @@ public class DetailActivityFragment extends Fragment {
     ListView trailersListView;
     ArrayAdapter reviewsAdapter;
     ArrayAdapter trailersAdapter;
-   // Button button;
-   String id ;
-
+    String id ;
     String title ;
     String path ;
     String overview ;
@@ -73,7 +71,6 @@ Button controlFavorites;
                              Bundle savedInstanceState) {
         View rootView=inflater.inflate(R.layout.fragment_detail, container, false);
         mydp=DBHelper.getInstance(getActivity());
-        //Intent intent=getActivity().getIntent();
         moviesReviews=new ArrayList<String>();
         movieTrailersNames=new ArrayList<String>();
         trailerArrayList=new ArrayList<Trailer>();
@@ -115,7 +112,6 @@ Button controlFavorites;
         movieOverview.setText(overview);
         movieRelease.setText(release);
         movieVote.setText(vote);
-      //  button=(Button)rootView.findViewById(R.id.showReviews);
         controlFavorites=(Button)rootView.findViewById(R.id.favor);
         int y=mydp.checkIfMovieExists(id);
         if (y==1)
@@ -127,13 +123,6 @@ Button controlFavorites;
         {
         controlFavorites.setText("Add to favorites");
         }
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                    GetReviews g=new GetReviews();
-//                    g.execute(id);
-//            }
-//        });
         controlFavorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -156,7 +145,6 @@ public void onStart()
     super.onStart();
     GetReviews getReviews=new GetReviews();
     GetTrailers getTrailers=new GetTrailers();
-  //  String id=getActivity().getIntent().getExtras().getString("id");
     if (isNetworkAvailable())
     {
         getReviews.execute(id);

@@ -24,15 +24,15 @@ public class MainActivity extends AppCompatActivity implements MovieListener {
         {
             chechTablet=true;
         }
-//   if(savedInstanceState==null)
+//if(savedInstanceState==null)
+//{
+    MainActivityFragment mainActivityFragment=new MainActivityFragment();
+    mainActivityFragment.setMovieListener(this);
+    getSupportFragmentManager().beginTransaction().replace(R.id.fragment, mainActivityFragment).commit();
 
-     MainActivityFragment mainActivityFragment=new MainActivityFragment();
-       mainActivityFragment.setMovieListener(this);
-       getSupportFragmentManager().beginTransaction().replace(R.id.fragment,mainActivityFragment).commit();
+//}
 
-    }
-
-
+}
 
     @Override
     public void setSelectedMovie(String id, String title, String poster, String overview, String vote, String release)
@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements MovieListener {
          extras.putString("release_date", release);
          detailActivityFragment.setArguments(extras);
          getSupportFragmentManager().beginTransaction().replace(R.id.detailFrameLayoute, detailActivityFragment).commit();
-       //  getSupportFragmentManager().beginTransaction().add(R.id.detailFrameLayoute,new DetailActivityFragment());
      }
         else
      {

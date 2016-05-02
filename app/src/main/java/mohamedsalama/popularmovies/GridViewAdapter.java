@@ -31,24 +31,8 @@ package mohamedsalama.popularmovies;
         }
 
         public void setData(ArrayList<String> p){
-
-           if(path!=null)
-           {
-               for (int i=0;i<path.size();i++)
-               {
-                   System.out.print(path.get(i));
-                  // System.out.print("sssssssssssssssssssssssssssssssssssssssssssssssssssssssgggggggg");
-
-               }
-               path.clear();
-           }
-
-            for (int i=0;i<p.size();i++)
-            {
-                path.add(p.get(i));
-                //System.out.println(path.get(i));
-
-            }
+            path.clear();
+            path.addAll(p);
         }
         @Override
         public int getCount() {
@@ -67,7 +51,6 @@ package mohamedsalama.popularmovies;
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            System.out.println("nananan");
             if(convertView==null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.list_item_posters, parent, false);
